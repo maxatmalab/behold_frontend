@@ -11,7 +11,7 @@ import { Platform, StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 import { Button } from 'react-native-paper'
-import MyComponent from './components/MyComponent';
+import MyComponent from './components/MyComponent'
 import TeachersScreen from './screens/TeachersScreen'
 
 const instructions = Platform.select({
