@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-} from 'react-native';
+import React, { Component } from 'react'
+import { Text, View } from 'react-native'
 
 type Props = {
 
 }
 
-class TeachersScreen extends Component<Props> {
-  <View>
-      
-  </View>
+export default class TeachersScreen extends Component<Props> {
+    render() {
+        return (
+            <View>
+                <Text> textInComponent </Text>
+            </View>
+        )
+    }
 }
