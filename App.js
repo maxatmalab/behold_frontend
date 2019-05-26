@@ -10,9 +10,9 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
+import { Button } from 'react-native-paper'
 import MyComponent from './components/MyComponent';
-import { Button } from 'react-native-paper';
-
+import TeachersScreen from './screens/TeachersScreen'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -21,7 +21,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-// type Props = {};
+type Props = {};
 // export default class App extends Component<Props> {
 //   render() {
 //     return (
@@ -32,14 +32,14 @@ const instructions = Platform.select({
 //         <Button icon="add-a-photo" mode="contained" onPress={() => console.log('Pressed')}>
 //           Press me
 //   </Button> */}
-
+//
 //         <MyComponent />
 //       </View>
 //     );
 //   }
 // }
 
-class HomeScreen extends React.Component {
+class HomeScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
@@ -52,8 +52,13 @@ class HomeScreen extends React.Component {
 const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen
+  },
+  Teachers: {
+    screen: TeachersScreen
   }
-});
+  }, {
+    initialRouteName: "Home"
+  });
 
 export default createAppContainer(AppNavigator);
 
