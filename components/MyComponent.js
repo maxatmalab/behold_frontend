@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { BottomNavigation, Text } from 'react-native-paper';
+import * as React from 'react'
+import {BottomNavigation, Text} from 'react-native-paper'
 
 const MusicRoute = () => <Text>Music</Text>;
 
@@ -9,29 +9,29 @@ const RecentsRoute = () => <Text>Recents</Text>;
 
 export default class MyComponent extends React.Component {
   state = {
-    index: 0,
-    routes: [
-      { key: 'music', title: 'Music', icon: 'queue-music' },
-      { key: 'albums', title: 'Albums', icon: 'album' },
-      { key: 'recents', title: 'Recents', icon: 'history' },
-    ],
+      index: 0,
+      routes: [
+          {key: 'music', title: 'Music', icon: 'queue-music'},
+          {key: 'albums', title: 'Albums', icon: 'album'},
+          {key: 'recents', title: 'Recents', icon: 'history'},
+      ],
   };
 
   _handleIndexChange = index => this.setState({ index });
 
   _renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
+      music: MusicRoute,
+      albums: AlbumsRoute,
+      recents: RecentsRoute,
   });
 
   render() {
-    return (
-      <BottomNavigation
-        navigationState={this.state}
-        onIndexChange={this._handleIndexChange}
-        renderScene={this._renderScene}
-      />
-    );
+      return (
+          <BottomNavigation
+              navigationState={this.state}
+              onIndexChange={this._handleIndexChange}
+              renderScene={this._renderScene}
+          />
+      )
   }
 }
