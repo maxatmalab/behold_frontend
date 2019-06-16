@@ -19,4 +19,4 @@ const Main = () => {
 
 export default Main
 
-AppRegistry.registerComponent(appName, Main);
+AppRegistry.registerComponent(appName, () => Main);
