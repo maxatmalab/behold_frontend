@@ -6,75 +6,60 @@
  * @flow
  */
 
-import React, {Component} from 'react'
-import {Platform, StyleSheet, Text, View} from 'react-native'
-import {createStackNavigator, createAppContainer} from 'react-navigation'
+import React from 'react'
+import {Platform, StyleSheet, Text, View} from 'react-native';
+import {createBottomTabNavigator, createStackNavigator, createAppContainer} from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import HomeScreen from './screens/HomeScreen';
+import TeachersScreen from './screens/TeachersScreen';
 
-// import {Button} from 'react-native-paper'
-// import MyComponent from './components/MyComponent'
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
-});
 
 type Props = {}
-// export default class App extends Component<Props> {
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         {/* <Text style={styles.welcome}>Welcome to React Native!</Text>
-//         <Text style={styles.instructions}>To get started, edit App.js</Text>
-//         <Text style={styles.instructions}>{instructions}</Text>
-//         <Button icon="add-a-photo" mode="contained" onPress={() => console.log('Pressed')}>
-//           Press me
-//   </Button> */}
-//
-//         <MyComponent />
-//       </View>
-//     );
-//   }
-// }
 
-class HomeScreen extends Component<Props> {
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Home Screen</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
-            </View>
-        )
-    }
-}
-
-const AppNavigator = createStackNavigator(
+const HomeStack = createStackNavigator(
     {
-        Home: {
-            screen: HomeScreen,
-        },
+        Home: {screen: HomeScreen},
     },
     {
-        initialRouteName: 'Home',
+        defaultNavigationOptions: {
+            //Header customization of the perticular Screen
+            headerStyle: {
+                backgroundColor: '#42f44b',
+            },
+            headerTintColor: '#FFFFFF',
+            title: 'Home',
+        },
+    }
+);
+
+const AppNavigator = createBottomTabNavigator(
+    {
+        Home: {
+            screen: HomeStack,
+        },
+        Teachers: {
+            screen: TeachersScreen,
+        }
+    },
+    {
+        defaultNavigationOptions: ({navigation}) => ({
+            tabBarIcon: ({focused, horizontal, tintColor}) => {
+                const {routeName} = navigation.state;
+                let IconComponent = Ionicons;
+                let iconName;
+                if (routeName === 'Home') {
+                    iconName = `ios-home`;
+                } else if (routeName === 'Teachers') {
+                    iconName = `ios-people`;
+                }
+                return <IconComponent name={iconName} size={25} color={tintColor}/>;
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: '#333333',
+            inactiveTintColor: 'gray',
+        },
     }
 );
 
 export default createAppContainer(AppNavigator)
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});

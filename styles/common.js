@@ -1,0 +1,7 @@
+export const LIGHT_BG_COLOR_PRIMARY = '#FAFAFA';
+export const LIGHT_BG_COLOR_SECONDARY = '#E0E0E0';
+
+export const LIGHT_COLOR_GRAY_1 = '#7A7A7A';
+
+export const DARK_BG_COLOR_PRIMARY = '#FAFAFA';
+export const DARK_BG_COLOR_SECONDARY = '#E0E0E0';
