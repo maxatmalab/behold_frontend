@@ -30,3 +30,9 @@ This repo designed to create a prototype of application
     
 Инструкции по настройке и запуску приложения на react-native [тут](https://facebook.github.io/react-native/docs/getting-started).
 Выбирать нужно вкладку *React Native CLI Quickstart*.
+
+### Полезные ссылки к проекту
+
+1. [React Native](https://facebook.github.io/react-native/)
+2. [React Navigation](https://reactnavigation.org/en/) - обеспечение навигации
+3. [React Native Elements](https://react-native-training.github.io/react-native-elements/) - библиотека готовых компонентов

@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {Text, View, ScrollView} from 'react-native'
 
 import styles from '../styles/TeachersStyle';
+import {Button} from "react-native-elements";
 
 
 const dataTeachers = [
@@ -21,6 +22,10 @@ export default class TeachersScreen extends Component<Props> {
         return (
             <View>
                 <Text style={styles.title}>Учителя</Text>
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
                 <ScrollView style={styles.container}>
                     {dataTeachers.map((item, i) =>
                         <View style={styles.item_container} key={i}>

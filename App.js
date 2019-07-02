@@ -12,13 +12,14 @@ import {createBottomTabNavigator, createStackNavigator, createAppContainer} from
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import HomeScreen from './screens/HomeScreen';
 import TeachersScreen from './screens/TeachersScreen';
-
-
-type Props = {}
+import CourseScreen from "./screens/CourseScreen";
+import ProfileScreen from "./screens/ProfileScreen";
+import PlayerScreen from "./screens/PlayerScreen";
 
 const HomeStack = createStackNavigator(
     {
         Home: {screen: HomeScreen},
+        Player: {screen: PlayerScreen}
     },
     {
         defaultNavigationOptions: {
@@ -32,13 +33,31 @@ const HomeStack = createStackNavigator(
     }
 );
 
+const TeachersStack = createStackNavigator(
+    {
+        Teachers: {screen: TeachersScreen},
+        Course: {screen: CourseScreen},
+        Profile: {screen: ProfileScreen}
+    },
+    {
+        defaultNavigationOptions: {
+            //Header customization of the perticular Screen
+            headerStyle: {
+                backgroundColor: '#42f44b',
+            },
+            headerTintColor: '#FFFFFF',
+            title: 'Teachers',
+        },
+    }
+);
+
 const AppNavigator = createBottomTabNavigator(
     {
         Home: {
             screen: HomeStack,
         },
         Teachers: {
-            screen: TeachersScreen,
+            screen: TeachersStack,
         }
     },
     {

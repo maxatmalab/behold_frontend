@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {Text, View, ScrollView} from 'react-native'
 
 import styles from '../styles/ProfileStyle';
+import {Button} from "react-native-elements";
 
 const dataPerson = [
     {
@@ -25,6 +26,10 @@ export default class ProfileScreen extends Component<Props> {
         return (
             <View>
                 <Text style={styles.title}>Татьяна Пошаталова</Text>
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
                 <ScrollView style={styles.container}>
                     {dataPerson.map((item, i) =>
                         <View style={styles.item_container} key={i}>

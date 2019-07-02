@@ -5,6 +5,8 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 const IconComponent = Ionicon;
 
 import styles from '../styles/HomeStyle';
+import {Button} from 'react-native-elements';
+
 import {LIGHT_COLOR_GRAY_1} from "../styles/common";
 
 type Props = {}
@@ -17,6 +19,28 @@ export default class HomeScreen extends Component<Props> {
                     <Text><IconComponent name={'ios-search'} size={20} color={LIGHT_COLOR_GRAY_1}/> Поиск</Text>
                 </View>
                 <ScrollView>
+                    <Button
+                        title="На страницу Курса..."
+                        onPress={() => this.props.navigation.push('Course')}
+                    />
+                    <Button
+                        title="На страницу Профайла..."
+                        onPress={() => this.props.navigation.push('Profile')}
+                    />
+                    <Button
+                        title="На страницу Курса..."
+                        onPress={() => this.props.navigation.push('Player')}
+                    />
+
+                    <Button
+                        title="Go to Home"
+                        onPress={() => this.props.navigation.navigate('Home')}
+                    />
+                    <Button
+                        title="Go back"
+                        onPress={() => this.props.navigation.goBack()}
+                    />
+
                     <Text>
                         Колоколов средневековый
                         Певучий зов, печаль времен,

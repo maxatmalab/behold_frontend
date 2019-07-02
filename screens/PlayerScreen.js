@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
-import {StyleSheet, Text, View, ScrollView} from 'react-native'
+import {Text, View} from 'react-native'
 
 import styles from '../styles/PlayerStyle';
+import {Button} from "react-native-elements";
 
 const dataTrack = [
     {
@@ -22,6 +23,10 @@ export default class CourseScreen extends Component<Props> {
         return (
             <View>
                 <Text style={styles.title}>Осознание дыхания</Text>
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
             </View>
         )
     }
